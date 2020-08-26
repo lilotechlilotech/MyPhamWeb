@@ -1,0 +1,60 @@
+﻿@{
+    var dat = (IEnumerable<Outsourcing.Data.Models.WebsiteAttribute>)ViewBag.social;
+    HttpCookie cookie = Request.Cookies["_culture"];
+}
+@model  Outsourcing.Data.Models.WebsiteAttribute
+<div class="page-title-section section" data-bg-image="@ViewBag.BannerChild">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <div class="page-title">
+                    <h1 class="title">@Html.Raw(Resources.ABOUTUS)</h1>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">@Html.Raw(Resources.HOME)</a></li>
+                        <li class="breadcrumb-item active"><a href="/aboutus">@Html.Raw(Resources.ABOUTUS)</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section section-padding">
+    <div class="container">
+
+        <!-- Section Title Start -->
+        <div class="section-title text-center">
+            <h3 class="sub-title" style="font-weight: bold;">@Html.Raw(Resources.Introduce)</h3>
+            <h2 class="title title-icon-both"></h2>
+        </div>
+        <!-- Section Title End -->
+
+        @if (cookie.Value == "vi" || cookie.Value == "")
+        {
+            @Html.Raw(Model.Noted_1)
+        }
+        else
+        {
+            @Html.Raw(Model.Noted_2)
+        }
+    </div>
+</div>
+
+
+<!-- About us Section End -->
+<style>
+    .about-us {
+        text-align: left;
+    }
+
+        .about-us .inner .title {
+            text-align: center;
+        }
+
+    .content {
+        text-align: left;
+    }
+</style>
+
