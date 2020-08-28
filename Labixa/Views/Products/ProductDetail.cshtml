@@ -1,4 +1,5 @@
 ﻿@model Outsourcing.Data.Models.Product
+@using Outsourcing.Core.Common
 @{
     //HttpCookie cookie = Request.Cookies["_culture"];
     ViewBag.Title = ViewBag.Title;
@@ -77,7 +78,8 @@
                             @Model.Name
                         </h3>
                         <p>
-                            @Model.Description
+                            @Html.Raw(slitString.TruncateAtWord(Model.Content, 80))
+                            @Html.Raw(Model.Content)
                         </p>
                         <div class="card_area">
                             <div class="product_count_area">
@@ -103,5 +105,5 @@
 <!-- subscribe part here -->
 
 
-@Html.Action("GetPromotion", "Home")
+@Html.Action("ProductFeatured", "Products")
 <!-- subscribe part end -->
