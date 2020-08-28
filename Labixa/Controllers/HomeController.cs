@@ -47,7 +47,7 @@ namespace Labixa.Controllers
             var model = _productService.GetAllProducts().OrderByDescending(x => x.DateCreated).Where(p => p.IsPublic == true);
            // ViewBag.banner01 = _websiteAttributeService.GetWebsiteAttributeById(5).LinkUrl;
             //HomeViewModels model = new HomeViewModels();
-            //model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
+            //model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo") ;
 
             return View(model);
             
