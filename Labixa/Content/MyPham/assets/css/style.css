@@ -13027,3 +13027,12 @@ input:focus {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/*@media (min-width: 1200px){
+    .header-bottom .header-right .shopping-card::before {
+        right:12px
+    }
+}*/
+/*.contact-section iframe {
+    width:100%
+}*/
