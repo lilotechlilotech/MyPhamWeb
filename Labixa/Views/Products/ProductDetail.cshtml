@@ -1,1 +1,109 @@
-﻿
+﻿@model Outsourcing.Data.Models.Product
+@using Outsourcing.Core.Common
+@{
+    //HttpCookie cookie = Request.Cookies["_culture"];
+    ViewBag.Title = ViewBag.Title;
+    ViewBag.Description = ViewBag.Description;
+    ViewBag.Image = ViewBag.Image;
+    ViewBag.Url = ViewBag.Url;
+}
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="http://tueduchealthy.vn/@ViewBag.BannerChild">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Chi tiết sản phẩm</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Single Product Area =================--->
+<div class="product_image_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="product_img_slide owl-carousel">
+                    @foreach (var item in Model.ProductPictureMappings)
+                    {
+                        <div class="single_product_img">
+
+                            <img src="http://tueduchealthy.vn/@item.Picture.Url" alt="@item.Title" class="img-fluid">
+
+                        </div>
+                    }
+                    @*<div class="single_product_img">
+                            <img src="assets/img/product/single_product.png" alt="#" class="img-fluid">
+                        </div>
+                        <div class="single_product_img">
+                            <img src="assets/img/product/single_product.png" alt="#" class="img-fluid">
+                        </div>*@
+                </div>
+            </div>
+            <div class="col-lg-8">
+                @if (Model.IsHomePage == true)
+                {
+                    <div class="single_product_text text-center">
+                        <h3>
+                            @Model.Name
+                        </h3>
+                        <p>
+                            @Model.Content
+                        </p>
+                        <div class="card_area">
+                            <div class="product_count_area">
+                                <p>Quantity</p>
+                                <div class="product_count d-inline-block">
+                                    <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
+                                    <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
+                                    <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
+                                </div>
+                                <p>$5</p>
+                            </div>
+                            <div class="add_to_cart">
+                                <a href="#" class="btn_3">add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="single_product_text text-center">
+                        <h3>
+                            @Model.Name
+                        </h3>
+                        <p>
+                            @*@Html.Raw(slitString.TruncateAtWord(Model.Content, 80))*@
+                            @Html.Raw(Model.Content)
+                        </p>
+                        <div class="card_area">
+                            <div class="product_count_area">
+                                <p>Quantity</p>
+                                <div class="product_count d-inline-block">
+                                    <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
+                                    <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
+                                    <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
+                                </div>
+                                <p>$5</p>
+                            </div>
+                            <div class="add_to_cart">
+                                <a href="#" class="btn_3">add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End Single Product Area =================-->
+<!-- subscribe part here -->
+
+
+@Html.Action("ProductFeatured", "Products")
+<!-- subscribe part end -->

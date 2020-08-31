@@ -45,24 +45,27 @@ namespace Labixa.Controllers
         public ActionResult Index()
         {
             var model = _productService.GetAllProducts().OrderByDescending(x => x.DateCreated).Where(p => p.IsPublic == true);
-            ViewBag.banner01 = _websiteAttributeService.GetWebsiteAttributeById(5).LinkUrl;
-            // HomeViewModels model = new HomeViewModels();
-            //model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
+           // ViewBag.banner01 = _websiteAttributeService.GetWebsiteAttributeById(5).LinkUrl;
+            //HomeViewModels model = new HomeViewModels();
+            //model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo") ;
 
             return View(model);
+            
         }
+        
 
         public ActionResult getHeader()
         {
-            var websiteAttribute = _websiteAttributeService.GetWebsiteAttributes().Where(p => p.Type.ToLower().Equals("social")).ToList();
-            ViewBag.social = websiteAttribute;
-            var list = _productcategoryService.GetProductCategories();
-            //HomeViewModels model = new HomeViewModels();
-            //model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
-            var logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
-            ViewBag.logobig = logo.LinkUrl;
-            ViewBag.logosmall = logo.Noted_1;
-            return PartialView("_Header", list);
+            //var websiteAttribute = _websiteAttributeService.GetWebsiteAttributes().Where(p => p.Type.ToLower().Equals("social")).ToList();
+            //ViewBag.social = websiteAttribute;
+            //var list = _productcategoryService.GetProductCategories();
+            ////HomeViewModels model = new HomeViewModels();
+            ////model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
+            //var logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
+            //ViewBag.logobig = logo.LinkUrl;
+            //ViewBag.logosmall = logo.Noted_1;
+            //return PartialView("_Header",list);
+            return PartialView("_Header");
         }
         public ActionResult Banner()
         {
@@ -77,12 +80,12 @@ namespace Labixa.Controllers
 
         public ActionResult getFooter()
         {
-            var websiteAttribute = _websiteAttributeService.GetWebsiteAttributes().Where(p => p.Type.ToLower().Equals("social")).ToList();
-            ViewBag.social = websiteAttribute;
-            //HomeViewModels model = new HomeViewModels();
-            //model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
-            var logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
-            ViewBag.logobig = logo.LinkUrl;
+            //var websiteAttribute = _websiteAttributeService.GetWebsiteAttributes().Where(p => p.Type.ToLower().Equals("social")).ToList();
+            //ViewBag.social = websiteAttribute;
+            ////HomeViewModels model = new HomeViewModels();
+            ////model.logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
+            //var logo = _websiteAttributeService.GetWebsiteAttributeByName("logo");
+            //ViewBag.logobig = logo.LinkUrl;
 
             return PartialView("_Footer");
         }

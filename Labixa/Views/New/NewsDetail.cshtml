@@ -1,133 +1,143 @@
 ﻿@model Outsourcing.Data.Models.Blog
+@using Outsourcing.Core.Common
 @{
-    HttpCookie cookie = Request.Cookies["_culture"];
+    // HttpCookie cookie = Request.Cookies["_culture"];
     ViewBag.Title = ViewBag.Title;
     ViewBag.Description = ViewBag.Description;
     ViewBag.Image = ViewBag.Image;
     ViewBag.Url = ViewBag.Url;
 }
 
-<style>
-    .widget-blogs {
-        display: inline;
-    }
-</style>
-<div class="page-title-section section" data-bg-image="http://tueduchealthy.vn/@ViewBag.BannerChild" alt="tueduchealthy.vn">
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="http://tueduchealthy.vn/@ViewBag.BannerChild">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Chi Tiết Tin Tức</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Blog Area =================--->
+<section class="blog_area single-post-area section-padding">
     <div class="container">
         <div class="row">
-            <div class="col">
-
-                <div class="page-title">
-                    @if (Model.BlogCategoryId == 3)
-                    {
-                        <h1 class="title">@Html.Raw(Resources.NewsDetails)</h1>
-                    }
-                    else
-                    {
-                        <h1 class="title">@Html.Raw(Resources.RECRUITMENT)</h1>
-                    }
-
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">@Html.Raw(Resources.HOME)</a></li>
-                        @if (Model.BlogCategoryId == 3)
-                        {
-                            <li class="breadcrumb-item active"><a href="/newDetail/@Model.Slug">@Html.Raw(Resources.NewsDetails)</a></li>
-                        }
-                        else
-                        {
-                            <li class="breadcrumb-item active"><a href="/newDetail/@Model.Slug">@Html.Raw(Resources.RECRUITMENT)</a></li>
-                        }
-
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Title/Header End -->
-<!-- Portfolio Section Start -->
-<div class="section section-padding">
-    <div class="container">
-        <div class="row learts-mb-n50">
-
-            <div class="col-xl-9 col-lg-8 col-12 learts-mb-50">
-                <div class="single-blog">
-                    <div class="image">
-                        <a href="/newDetail/@Model.Slug"><img src="@Model.BlogImage_Default" alt="@Model.Title"></a>
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="img-fluid" src="http://tueduchealthy.vn/@Model.BlogImage_Default" alt="@Model.Title">
                     </div>
-                    <div class="content">
-                        @if (cookie.Value == "vi" || cookie.Value == "")
-                        {
-                            <h2 class="title">@Model.Title</h2>
-                            <ul class="meta">
+                    <div class="blog_details">
+                        <h2>
+                            @Model.Title
+                        </h2>
+                        <ul class="blog-info-link">
+                            <li><a href="#"><i class="fa fa-calendar"></i> @Model.DateCreated.ToString("dd/MM/yyyy")</a></li>
 
-                                <li><i class="far fa-calendar"></i><a href="#">Ngày đăng:@Model.DateCreated.ToString("dd/MM/yyyy")</a></li>
-
-                            </ul>
-                            <div class="desc">
-                                @if (Model.BlogCategoryId == 3)
-                                {
-                                    <blockquote>
-                                        <p>@Html.Raw(Model.Description)</p>
-                                    </blockquote>
-                                }
-
-                                <p>@Html.Raw(Model.Content)</p>
-                            </div>
-                        }
-                        else
-                        {
-                            <h2 class="title">@Model.TitleEng</h2>
-                            <ul class="meta">
-
-                                <li><i class="far fa-calendar"></i><a href="#">Create Date:@Model.DateCreated.ToString("dd/MM/yyyy")</a></li>
-
-                            </ul>
-                            <div class="desc">
-
-                                @if (Model.BlogCategoryId == 3)
-                                {
-                                    <blockquote>
-                                        <p>@Html.Raw(Model.Description)</p>
-                                    </blockquote>
-                                }
-                                <p>@Html.Raw(Model.ContentEng)</p>
-
-                            </div>
-                        }
-                    </div>
-
-                </div>
-
-
-            </div>
-            <div class="col-xl-3 col-lg-4 col-12 learts-mb-10">
-                <!-- Search Start -->
-                <div class="single-widget learts-mb-40">
-                    <div class="widget-search">
+                        </ul>
+                        <p>@Model.Description</p>
 
                     </div>
                 </div>
-                <!-- Search End -->
-                <!-- Blog Post Widget Start -->
-                <div class="single-widget learts-mb-40">
-
-                    <h3 class="widget-title product-filter-widget-title">
-                        @Html.Raw(Resources.FeaturedNews)
-                    </h3>
-
-                    <div style="display:inline-flex" class="widget-blogs">
-                        <ul class="widget-blogs">
-                            @Html.Action("NewsFeatured", "New")
+                <div class="navigation-top">
+                    <div class="d-sm-flex justify-content-between text-center">
+                        <p class="like-info">
+                            <span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
+                            people like this
+                        </p>
+                        <div class="col-sm-4 text-center my-2 my-sm-0">
+                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                        </div>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
                         </ul>
                     </div>
+
+                </div>
+                <div class="blog-author">
+                    <div class="media align-items-center">
+                        <img src="assets/img/blog/author.png" alt="">
+                        <div class="media-body">
+
+                            <p>
+                                @*@Html.Raw(slitString.TruncateAtWord(@Html.Raw(Model.Content), 80));*@
+                                @Html.Raw(Model.Content)
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="comment-form">
+                    <h4>ConTact Form</h4>
+                    <form class="form-contact comment_form" action="#" id="commentForm">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                              placeholder="Nội Dung ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" id="name" type="text" placeholder="Họ Và Tên">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="website" id="website" type="number" placeholder="Số Điện Thoại">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Gửi tin nhắn</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
 
+                    @Html.Action("NewsFeatured", "New")
+
+                    <aside class="single_sidebar_widget instagram_feeds">
+                        <h4 class="widget_title">Social</h4>
+                        <ul class="instagram_row flex-wrap">
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/tiktok.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/instagram-sketched.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/facebook.png" alt="">
+                                </a>
+                            </li>
+
+                        </ul>
+                    </aside>
+
+                </div>
+            </div>
         </div>
-
     </div>
-
-</div>
+</section>
+<!--================ Blog Area end =================-->
