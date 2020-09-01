@@ -27,7 +27,7 @@ namespace Labixa
     "~/Content/admin/js/bootstrap.min.js",
     "~/Content/admin/js/jquery-ui-1.10.3.full.min.js",
     "~/Content/admin/js/date-time/bootstrap-datepicker.min.js",
-                    "~/Content/~/assets/js/ace-elements.min.js",
+                    "~/Content/assets/js/ace-elements.min.js",
     "~/Content/admin/js/ace.min.js",
     "~/Content/admin/js/ace-extra.min.js",
     "~/Content/admin/vpn/adminvpn.js"
