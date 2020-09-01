@@ -1791,6 +1791,7 @@
     <Content Include="Views\Products\_productHome.cshtml" />
     <Content Include="Views\New\_newRelated.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Products\Catagori.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
