@@ -1,6 +1,23 @@
 ﻿@using PagedList.Mvc;
 @model PagedList.IPagedList<Outsourcing.Data.Models.Product>
-
+<style>
+    .pagination-container{
+        display:inline-block
+    }
+        .pagination-container .pagination .active a {
+            background-color: #236d5f;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #f5f5f5;
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            margin-left: 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: all .5s;
+        }
+</style>
     <main>
 
         <!-- slider Area Start--->
@@ -8,7 +25,7 @@
             <!-- Mobile Menu -->
             <div class="single-slider slider-height2 d-flex align-items-center" data-background="../Content/MyPham/assets/img/hero/category.jpg">
                 <div class="container">
-                    <div class="row">
+                    <div class="row">   
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
                                 <h2>Danh sách sản phẩm</h2>

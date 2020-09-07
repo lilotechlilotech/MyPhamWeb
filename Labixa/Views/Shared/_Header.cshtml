@@ -41,25 +41,140 @@
             x.style.display = "none";
             y.style.display = "block";
         }
-       
-        
+
+
     }
-    //function todo() {
-    //    createCookie('_culture', 'en', 365);
-    //}
-</script>
-<!-- Preloader Start -->
+    function todo() {
+        createCookie('_culture', 'en', 365);
+    }
+</script>   <!-- Preloader Start -->
+<style>
+    .option p {
+        margin-bottom: 0px;
+    }
+
+    .col-lg-1 {
+        position: initial;
+    }
+
+    .select__wrap {
+        width: 120px;
+        position: relative;
+        user-select: none;
+    }
+
+        .select__wrap .default__option {
+            background: #fff;
+            border-radius: 1px;
+            position: relative;
+            cursor: pointer;
+        }
+
+            .select__wrap .default__option li {
+                padding: 4px 5px;
+            }
+
+            .select__wrap .default__option:before {
+                content: "";
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                width: 6px;
+                height: 6px;
+                border: 2px solid;
+                border-color: transparent transparent #555555 #555555;
+                transform: rotate(-45deg);
+            }
+
+        .select__wrap .select__ul {
+            position: absolute;
+            top: 55px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-radius: 5px;
+            display: none;
+        }
+
+            .select__wrap .select__ul li {
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+                .select__wrap .select__ul li:first-child:hover {
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+
+                .select__wrap .select__ul li:last-child:hover {
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+
+        .select__wrap .select_ul li:hover {
+            background: #fff4dd;
+        }
+
+        .select__wrap .option {
+            display: flex;
+            align-items: center;
+        }
+
+            .select__wrap .option .icon {
+                width: 32px;
+                height: 32px;
+                margin-right: 15px;
+            }
+
+            .select__wrap .option.pizza .icon {
+                background-position: 0 0;
+            }
+
+            .select__wrap .option.burger .icon {
+                background-position: 0 -35px;
+            }
+
+            .select__wrap .option.ice .icon {
+                background-position: 0 -72px;
+            }
+
+            .select__wrap .option.fries .icon {
+                background-position: 0 -111px;
+                width: 25px;
+            }
+
+            .select__wrap .option .icon {
+                background: url('../../Content/MyPham/assets/img/food_items.png') no-repeat 0 0;
+                width: 32px;
+                height: 32px;
+                margin-right: 15px;
+            }
+
+        .select__wrap.active .select__ul {
+            display: block;
+        }
+
+        .select__wrap.active .default__option:before {
+            top: 25px;
+            transform: rotate(-225deg);
+        }
+
+    .header-bottom .header-right .shopping-card::before {
+        right: 6px;
+    }
+</style>
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="assets/img/logo/logo.png" alt="">
+                <img src="~/Content/MyPham/assets/img/logo/logo.png" alt="">
             </div>
         </div>
     </div>
 </div>
 <!-- Preloader Start -->
+
 <header>
     <!-- Header Start -->
     <div class="header-area">
@@ -69,23 +184,33 @@
                     <div class="col-xl-12">
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left d-flex">
-                                <div class="flag">
-                                   
-                                    <img src="~/Content/MyPham/assets/img/icon/icon_1.png" alt="" id="hinhen"style="display:none">
-                                </div>
-                                <div class="select-this">
-                                    <form action="#">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">VI</option>
-                                                <option value="" >USA</option>
-                                            </select>
-                                        </div>
-                                    </form>
+                                <div class="select__wrap">
+                                    <ul class="default__option">
+                                        <li>
+                                            <div class="option pizza">
+                                                <div class="icon"></div>
+                                                <p>VN</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="select__ul">
+                                        <li>
+                                            <div class="option pizza">
+                                                <div class="icon"></div>
+                                                <p>US</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="option burger">
+                                                <div class="icon"></div>
+                                                <p>VN</p>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <ul class="contact-now d-flex">
                                     <li class="pr-5">035 7259 578 </li>
-                                    <li class="email">huongmnt2019@gmail.com</li>
+                                    <li class="Email">huongmnt2019@gmail.com</li>
                                 </ul>
                             </div>
                             <div class="header-info-right">
@@ -103,7 +228,7 @@
                         <!-- Logo -->
                         <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="~/Content/MyPham/assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
@@ -111,59 +236,33 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Trang chủ</a></li>
-                                        <li><a href="Catagori.html">Giới Thiệu</a></li>
-                                        <li class="hot">
-                                            <a href="#">Sản Phẩm</a>
-                                            <ul class="submenu">
-                                                <li><a href="product_list.html">Sản Phẩm 1</a></li>
-                                                <li><a href="single-product.html">Sản Phẩm 2</a></li>
-                                            </ul>
+                                        <li><a href="/Home">Trang chủ</a></li>
+                                        <li><a href="/AboutUs">Giới Thiệu</a></li>
+                                        <li>
+                                            <a href="/product">Sản Phẩm</a>
                                         </li>
                                         <li>
-                                            <a href="blog.html">Tin Tức</a>
+                                            <a href="/News">Tin Tức</a>
+                                        </li>
+                                        <li><a href="/Contact">Liên Hệ</a></li>
+                                        <li >
+                                            <a href="#">Ngôn Ngữ</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Tin Tức 1</a></li>
-                                                <li><a href="single-blog.html">Tin Tức 2</a></li>
+                                                <li><a href="javascript:void(0)" onclick="createCookie('_culture','en',365)" style="color:red;"><span class="menu-text">English</span><img src="~/Content/MyPham/assets/img/icon/united-states.png" style="padding-left:7px;" alt="" /></a></li>
+                                                <li><a href="javascript:void(0)" onclick="createCookie('_culture','vi',365)"><span class="menu-text">Vietnamese</span><img src="~/Content/MyPham/assets/img/icon/vietnam.png" style="padding-left:7px" alt="" /></a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li><a href="#">Pages</a>
-                                            <ul class="submenu">
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="cart.html">Card</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Product Checkout</a></li>
-                                            </ul>
-                                        </li> -->
-                                        <li><a href="contact.html">Liên Hệ</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                             <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                                <!-- <li class="d-none d-xl-block">
-                                    <div class="form-box f-right ">
-                                        <input type="text" name="Search" placeholder="Search products">
-                                        <div class="search-icon">
-                                            <i class="fas fa-search special-tag"></i>
-                                        </div>
-                                    </div>
-                                 </li> -->
-                                <!-- <li class=" d-none d-xl-block">
-                                    <div class="favorit-items">
-                                        <i class="far fa-heart"></i>
-                                    </div>
-                                </li> -->
                                 <li>
                                     <div class="shopping-card">
                                         <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
                                     </div>
                                 </li>
-                                <!-- <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li> -->
                             </ul>
                         </div>
                         <!-- Mobile Menu -->
@@ -177,3 +276,16 @@
     </div>
     <!-- Header End -->
 </header>
+<script>
+    $(document).ready(function () {
+        $(".default__option").click(function () {
+            $(this).parent().toggleClass("active");
+        })
+
+        $(".select__ul li").click(function () {
+            var currentele = $(this).html();
+            $(".default__option li").html(currentele);
+            $(this).parents(".select__wrap").removeClass("active");
+        })
+    });
+</script>
