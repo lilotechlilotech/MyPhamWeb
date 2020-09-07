@@ -1,4 +1,54 @@
-﻿<!-- Preloader Start -->
+﻿<script>
+     @*script for cookie*@
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            } else {
+                var expires = "";
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+            location.reload();
+        }
+
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1, c.length);
+                }
+                if (c.indexOf(nameEQ) == 0) {
+                    return c.substring(nameEQ.length, c.length);
+                }
+            }
+            return null;
+        }
+
+
+    function showFlag() {
+        if (readCookie("_culture") == "vi" || readCookie("_culture") == "") {
+            var x = document.getElementById("hinhvn");
+            var y = document.getElementById("hinhen");
+            x.style.display = "block";
+            y.style.display = "none";
+
+        } else {
+            var x = document.getElementById("hinhvn");
+            var y = document.getElementById("hinhen");
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+       
+        
+    }
+    //function todo() {
+    //    createCookie('_culture', 'en', 365);
+    //}
+</script>
+<!-- Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
@@ -20,14 +70,15 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left d-flex">
                                 <div class="flag">
-                                    <img src="assets/img/icon/vn.png" alt="">
+                                   
+                                    <img src="~/Content/MyPham/assets/img/icon/icon_1.png" alt="" id="hinhen"style="display:none">
                                 </div>
                                 <div class="select-this">
                                     <form action="#">
                                         <div class="select-itms">
                                             <select name="select" id="select1">
-                                                <option value="">VN</option>
-                                                <option value="">USA</option>
+                                                <option value="">VI</option>
+                                                <option value="" >USA</option>
                                             </select>
                                         </div>
                                     </form>
