@@ -1,14 +1,35 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Outsourcing.Data.Models.Product>
+<style>
+    .pagination-container {
+        display: inline-block
+    }
+
+        .pagination-container .pagination .active a {
+            background-color: #236d5f;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #f5f5f5;
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            margin-left: 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: all .5s;
+        }
+</style>
 <main>
 
-    <!-- slider Area Start-->
+    <!-- slider Area Start--->
     <div class="slider-area ">
         <!-- Mobile Menu -->
-        <div class="single-slider slider-height2 d-flex align-items-center" data-background="~/Content/MyPham/assets/img/hero/category.jpg">
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="../Content/MyPham/assets/img/hero/category.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>Sản phẩm</h2>
+                            <h2>Danh sách sản phẩm</h2>
                         </div>
                     </div>
                 </div>
@@ -33,465 +54,108 @@
                 <!-- card one -->
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsHomePage == true)
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <div class="product-img">
+                                            <img src="../Content/MyPham/assets/img/11.jpg" alt="">
+                                            <div class="new-product">
+                                                <span>Sale</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-caption">
+                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                            <div class="price">
+                                                <ul>
+                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
+                                                    <li class="discount">@item.OldPrice.ToString("#,##0") vnđ</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="product-caption">
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
+                            }
+                            else
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <div class="product-img">
+                                            <img src="http://tueduchealthy.vn/@item.ProductPictureMappings.FirstOrDefault().Picture.Url" alt="">
+                                            <div class="new-product">
+                                                <span>Sale</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-caption">
+                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                            <div class="price">
+                                                <ul>
+                                                    <li>920.000 VNĐ</li>
+                                                    <li class="discount">@item.OldPrice.ToString("#,##0") vnđ</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
+                            }
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
+                        }
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <!-- Card two -->
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>950.000 VNĐ</li>
-                                            <li class="discount">1.400.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
+            </div>
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
+            <div class="col text-center">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                <br />
+                <span>@Html.PagedListPager(Model, page => Url.Action("Products", "Products", new { page }))</span>
+            </div>
+            <div class="col text-center">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.350.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
+                @*<div class="page1" style="text-align:center">
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <!-- Card three -->
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
+                    <br />
+                *@
+                @*<div>
+                        <span>@Html.PagedListPager(Model, page => Url.Action("Products", "Products", new { page }))</span>
+                    </div>*@
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
+                @*<nav class="blog-pagination justify-content-center d-flex">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link"> @Html.PagedListPager(Model, page => Url.Action("Products", "Products", new { page })).ToString()</a>
+                            </li>
+                            <li class="page-item active">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                           <li class="page-item">
+                                <a class="page-link">@Html.PagedListPager(Model, page => Url.Action("News", "New", new { page }))</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>*@
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
 
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- card foure -->
-                <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- End Nav Card -->
         </div>
@@ -555,437 +219,8 @@
     </div>
     <!-- Shop Method End-->
     <!-- Gallery Start-->
-    <section class="latest-product-area padding-bottom">
-        <div class="container">
-            <div class="row product-btn d-flex justify-content-end align-items-end">
-                <!-- Section Tittle -->
 
-                <div class="col-xl-8 col-lg-7 col-md-7">
-                    <div class="properties__button f-right">
-                        <!--Nav Button  -->
-                        <!--End Nav Button  -->
-                    </div>
-                </div>
-            </div>
-            <!-- Nav Card -->
-            <div class="tab-content" id="nav-tabContent">
-                <!-- card one -->
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/Gallery/Gallery7.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/Gallery/Gallery3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/Gallery/Gallery2.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card two -->
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card three -->
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- card foure -->
-                <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product1.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product2.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product3.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product4.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product5.png" alt="">
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-product mb-60">
-                                <div class="product-img">
-                                    <img src="~/Content/MyPham/assets/img/categori/product6.png" alt="">
-                                    <div class="new-product">
-                                        <span>Sales</span>
-                                    </div>
-                                </div>
-                                <div class="product-caption">
-
-                                    <h4><a href="#">Green Dress with details</a></h4>
-                                    <div class="price">
-                                        <ul>
-                                            <li>920.000 VNĐ</li>
-                                            <li class="discount">1.380.000 VNĐ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Nav Card -->
-        </div>
-    </section>
-    <!-- Gallery End-->
+    @Html.Action("ProductFeatured", "Products")
+    <!-- Gallery En d-->
 
 </main>
