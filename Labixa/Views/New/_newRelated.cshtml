@@ -8,7 +8,7 @@
             foreach (var item in Model)
             {
                 <div class="media post_item">
-                    <img src="@item.BlogImage_Default" alt="@item.Title">
+                    <img src="../Content/MyPham/assets/img/ttnho.jpg" alt="@item.Title">
                     <div class="media-body">
                         <a href="/newDetail/@item.Slug">
                             <h3>@Html.Raw(slitString.TruncateAtWord(item.Title, 80))</h3>
