@@ -2696,16 +2696,16 @@ input:focus::-moz-placeholder {
 
 /* line 778, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 .section-padding30 {
-  padding-top: 200px;
-  padding-bottom: 170px;
+    /*padding-top: 200px; CAI NAY HUNG SUA 8/9/2020
+  padding-bottom: 170px;*/
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   /* line 778, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-  .section-padding30 {
+    /*.section-padding30 { CAI NAY HUNG SUA 8/9/2020
     padding-top: 200px;
     padding-bottom: 170px;
-  }
+  }*/
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -2834,10 +2834,12 @@ input:focus::-moz-placeholder {
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   /* line 848, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-  .latest-padding {
-    padding-top: 190px;
-    padding-bottom: 135px;
-  }
+    .latest-padding {
+        /*padding-top: 190px; cai nay hung sua
+        padding-bottom: 135px;*/
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {

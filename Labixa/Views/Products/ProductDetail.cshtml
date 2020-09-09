@@ -53,17 +53,17 @@
                             @Model.Name
                         </h3>
                         <p>
-                            @Model.Content
+                            @Html.Raw(Model.Content)
                         </p>
                         <div class="card_area">
                             <div class="product_count_area">
-                                <p>Quantity</p>
+                                <p>Số Lượng</p>
                                 <div class="product_count d-inline-block">
                                     <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
                                     <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
                                     <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
                                 </div>
-                                <p>$5</p>
+                                <p>@Model.OldPrice.ToString("#,##0") vnđ</p>
                             </div>
                             <div class="add_to_cart">
                                 <a href="#" class="btn_3">add to cart</a>
@@ -83,16 +83,16 @@
                         </p>
                         <div class="card_area">
                             <div class="product_count_area">
-                                <p>Quantity</p>
+                                <p>Số Lượng</p>
                                 <div class="product_count d-inline-block">
                                     <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
                                     <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
                                     <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
                                 </div>
-                                <p>$5</p>
+                                <p>@Model.Price.ToString("#,##0") vnđ</p>
                             </div>
                             <div class="add_to_cart">
-                                <a href="#" class="btn_3">add to cart</a>
+                                <a href="#" class="btn_3">Thêm Vào Giỏ Hàng</a>
                             </div>
                         </div>
                     </div>
