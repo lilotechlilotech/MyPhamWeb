@@ -3,9 +3,49 @@
         h2.contact-title{
             text-align:center
         }
-        
-    </style>
+        .product-buttons {
+            display: none
+        }
 
+            .product-buttons:hover {
+                cursor: pointer
+            }
+
+        .col-xl-4:hover {
+            transform: scale(1.08);
+            transition: transform 1.5s;
+        }
+
+            .col-xl-4:hover .product-caption {
+                display: none;
+                transform: scale(1,2);
+                transition: transform 3s;
+                cursor: pointer;
+            }
+
+            .col-xl-4:hover .product-buttons {
+                display: block
+            }
+
+        #icon-cart {
+            color: brown;
+            width: 48px;
+            height: 48px;
+            background-color: darkgoldenrod;
+            border-radius: 50%;
+            line-height: 3;
+        }
+
+            #icon-cart:hover {
+                background-color: aqua;
+            }
+    </style>
+    <script>
+    // script for data-hint
+        $(document).ready(function () {
+            $('[data-hint="tooltip"]').tooltip();
+        });
+    </script>
 <div class="slider-area ">
     <!-- Mobile Menu -->
     <div class="single-slider slider-height2 d-flex align-items-center" data-background="../Content/MyPham/assets/img/hero/category.jpg">
