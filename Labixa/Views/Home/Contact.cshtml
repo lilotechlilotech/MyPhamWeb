@@ -1,51 +1,52 @@
 ﻿<!-- slider Area Start-->
-    <style>
-        h2.contact-title{
-            text-align:center
-        }
-        .product-buttons {
-            display: none
-        }
+<style>
+    h2.contact-title {
+        text-align: center
+    }
 
-            .product-buttons:hover {
-                cursor: pointer
-            }
+    .product-buttons {
+        display: none
+    }
 
-        .col-xl-4:hover {
-            transform: scale(1.08);
-            transition: transform 1.5s;
+        .product-buttons:hover {
+            cursor: pointer
         }
 
-            .col-xl-4:hover .product-caption {
-                display: none;
-                transform: scale(1,2);
-                transition: transform 3s;
-                cursor: pointer;
-            }
+    .col-xl-4:hover {
+        transform: scale(1.08);
+        transition: transform 1.5s;
+    }
 
-            .col-xl-4:hover .product-buttons {
-                display: block
-            }
-
-        #icon-cart {
-            color: brown;
-            width: 48px;
-            height: 48px;
-            background-color: darkgoldenrod;
-            border-radius: 50%;
-            line-height: 3;
+        .col-xl-4:hover .product-caption {
+            display: none;
+            transform: scale(1,2);
+            transition: transform 3s;
+            cursor: pointer;
         }
 
-            #icon-cart:hover {
-                background-color: aqua;
-            }
-    </style>
-    <script>
+        .col-xl-4:hover .product-buttons {
+            display: block
+        }
+
+    #icon-cart {
+        color: brown;
+        width: 48px;
+        height: 48px;
+        background-color: darkgoldenrod;
+        border-radius: 50%;
+        line-height: 3;
+    }
+
+        #icon-cart:hover {
+            background-color: aqua;
+        }
+</style>
+<script>
     // script for data-hint
-        $(document).ready(function () {
-            $('[data-hint="tooltip"]').tooltip();
-        });
-    </script>
+    $(document).ready(function () {
+        $('[data-hint="tooltip"]').tooltip();
+    });
+</script>
 <div class="slider-area ">
     <!-- Mobile Menu -->
     <div class="single-slider slider-height2 d-flex align-items-center" data-background="../Content/MyPham/assets/img/hero/category.jpg">
@@ -60,56 +61,23 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 <!-- slider Area End-->
 <!-- ================ contact section start ================= -->
+
 <section class="contact-section">
     <div class="container">
         <div class="d-none d-sm-block mb-5 pb-4">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.267741741502!2d106.63972691440902!3d10.790793992311787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fc5e4380595%3A0x961795fa7d8e51d5!2scosmetic%20shop!5e0!3m2!1sen!2s!4v1598429764534!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
         </div>
+        @Html.Action("getContact", "Home")
 
-
-        <div class="row" style="justify-content:center">
-            <div class="col-12">
-                <h2 class="contact-title">Form Liên Hệ</h2>
-            </div>
-            <div class="col-lg-8">
-                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nội dung ...'" placeholder=" Nội dung ..."></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'" placeholder="Họ và tên">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Số điện thoại'" placeholder="Số điện thoại">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Gửi</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
     </div>
 </section>
+
 <!-- ================ contact section end ================= -->
 <!-- Gallery Start-->
 @Html.Action("ProductFeatured", "Products")
