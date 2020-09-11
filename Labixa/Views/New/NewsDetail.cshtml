@@ -41,41 +41,25 @@
                             <li><a href="#"><i class="fa fa-calendar"></i> @Model.DateCreated.ToString("dd/MM/yyyy")</a></li>
 
                         </ul>
-                        <p>@Model.Description</p>
+                        <div class="blog-author">
+                            <div class="media align-items-center">
 
-                    </div>
-                </div>
-                <div class="navigation-top">
-                    <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info">
-                            <span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
-                            people like this
-                        </p>
-                        <div class="col-sm-4 text-center my-2 my-sm-0">
-                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                                <div class="media-body">
+
+                                    <p>
+                                        @*@Html.Raw(slitString.TruncateAtWord(@Html.Raw(Model.Content), 80));*@
+                                       
+                                        @Model.Description
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <ul class="social-icons">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                        </ul>
-                    </div>
 
-                </div>
-                <div class="blog-author">
-                    <div class="media align-items-center">
-                        <img src="assets/img/blog/author.png" alt="">
-                        <div class="media-body">
 
-                            <p>
-                                @*@Html.Raw(slitString.TruncateAtWord(@Html.Raw(Model.Content), 80));*@
-                                @Html.Raw(Model.Content)
-                            </p>
-                        </div>
                     </div>
                 </div>
 
+                <p> @Html.Raw(Model.Content)</p>
                 <div class="comment-form">
                     <h4>ConTact Form</h4>
                     <form class="form-contact comment_form" action="#" id="commentForm">
@@ -118,17 +102,17 @@
                         <ul class="instagram_row flex-wrap">
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/tiktok.png" alt="">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/tiktok.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/instagram-sketched.png" alt="">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/instagram-sketched.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/facebook.png" alt="">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/facebook.png" alt="">
                                 </a>
                             </li>
 

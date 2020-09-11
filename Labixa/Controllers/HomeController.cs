@@ -52,8 +52,12 @@ namespace Labixa.Controllers
             return View(model);
             
         }
-        
 
+        public ActionResult getMission()
+        {
+          
+            return PartialView("_Mission");
+        }
         public ActionResult getHeader()
         {
             //var websiteAttribute = _websiteAttributeService.GetWebsiteAttributes().Where(p => p.Type.ToLower().Equals("social")).ToList();
