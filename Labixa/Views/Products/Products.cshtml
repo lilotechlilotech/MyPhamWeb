@@ -30,10 +30,10 @@
         transition: transform 1.5s;
     }
         .col-xl-4:hover .product-caption {
-            display: none;
             transform: scale(1,2);
             transition: transform 3s;
             cursor: pointer;
+            display: none;
         }
        
     .col-xl-4:hover .product-buttons{
@@ -116,9 +116,9 @@
 
 
                                         </div>
-                                        <div class="product-buttons">
+                                        <div class="product-buttons" data-hint="tooltip"  title="Thêm vào giỏ hàng!">
 
-                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top"  data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
                                         </div>
 
                                     </div>
