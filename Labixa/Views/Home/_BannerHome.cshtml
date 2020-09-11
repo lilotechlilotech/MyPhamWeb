@@ -2,8 +2,6 @@
         HttpCookie cookie = Request.Cookies["_culture"];
     }*@
 @model IEnumerable<Outsourcing.Data.Models.WebsiteAttribute>
-
-
 @{
     Outsourcing.Data.Models.WebsiteAttribute[] arraySlide = Model.Cast<Outsourcing.Data.Models.WebsiteAttribute>().ToArray();
 }
@@ -11,6 +9,9 @@
     <style>
         .d-md-block {
             display: block !important
+        }
+        #carouselExampleIndicators{
+            cursor:pointer
         }
     </style>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

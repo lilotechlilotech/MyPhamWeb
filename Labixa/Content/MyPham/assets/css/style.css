@@ -195,9 +195,10 @@
 /* 1. Theme default css */
 /* line 8, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 body {
-  font-family: "Poppins", sans-serif;
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Quicksand",sans-serif;
+    
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* line 13, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
@@ -207,22 +208,22 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
-  color: #0b1c39;
-  margin-top: 0px;
-  font-style: normal;
-  font-weight: 500;
-  text-transform: normal;
+    font-family: "Quicksand",sans-serif;
+    color: #0b1c39;
+    margin-top: 0px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: normal;
 }
 
 /* line 27, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 p {
-  font-family: "Poppins", sans-serif;
-  color: #506172;
-  font-size: 16px;
-  line-height: 30px;
-  margin-bottom: 15px;
-  font-weight: normal;
+    font-family: "Quicksand",sans-serif;
+    color: #506172;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    font-weight: normal;
 }
 
 /* line 38, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
@@ -4325,7 +4326,7 @@ input:focus {
 /* line 96, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_category.scss */
 .section-tittle h2 {
   color: #000;
-  font-size: 48px;
+  font-size: 45px; /*48->45 hung sua* 11/9/
   font-weight: 700;
   line-height: 1;
 }
