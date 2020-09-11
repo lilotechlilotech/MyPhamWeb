@@ -13,12 +13,14 @@
                         {
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-product mb-60">
-                                    <div class="product-img">
-                                        <img src="http://tueduchealthy.vn/@item.ProductPictureMappings.FirstOrDefault().Picture.Url" alt="@item.Name">
-                                        <div class="new-product">
-                                            <span>Sale</span>
+                                    <a href="/productDetail/@item.Slug" class="image-product">
+                                        <div class="product-img">
+                                            <img src="../Content/MyPham/assets/img/11.jpg" alt="@item.Name">
+                                            <div class="new-product">
+                                                <span>Sale</span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                     <div class="product-caption">
 
                                         <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
@@ -29,6 +31,11 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <div class="product-buttons" data-hint="tooltip" title="Thêm vào giỏ hàng!">
+
+                                        <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                    </div>
+
                                 </div>
                             </div>
                         }
