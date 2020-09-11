@@ -13,29 +13,22 @@
                         {
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-product mb-60">
-                                    <a href="/productDetail/@item.Slug" class="image-product">
-                                        <div class="product-img">
-                                            <img src="../Content/MyPham/assets/img/11.jpg" alt="@item.Name">
-                                            <div class="new-product">
-                                                <span>Sale</span>
-                                            </div>
+                                    <div class="product-img">
+                                        <img src="http://tueduchealthy.vn/@item.ProductPictureMappings.FirstOrDefault().Picture.Url" alt="@item.Name">
+                                        <div class="new-product">
+                                            <span>Sale</span>
                                         </div>
-                                        </a >
-                                        <div class="product-caption">
+                                    </div>
+                                    <div class="product-caption">
 
-                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
-                                            <div class="price">
-                                                <ul>
-                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
-                                                    <li class="discount">@item.OldPrice.ToString("#,##0") vnđ </li>
-                                                </ul>
-                                            </div>
+                                        <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                        <div class="price">
+                                            <ul>
+                                                <li>@item.Price.ToString("#,##0") vnđ</li>
+                                                <li class="discount">@item.OldPrice.ToString("#,##0") vnđ </li>
+                                            </ul>
                                         </div>
-                                        <div class="product-buttons">
-
-                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
-                                        </div>
-
+                                    </div>
                                 </div>
                             </div>
                         }

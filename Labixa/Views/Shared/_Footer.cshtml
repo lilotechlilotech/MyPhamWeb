@@ -13,10 +13,10 @@
                 <div class="footer__items">
                     <h3>Liên Kết Hữu Ích</h3>
                     <ul>
-                        <li><a href="">Trang chủ</a></li>
-                        <li><a href="">Giới thiệu</a></li>
-                        <li><a href="">Sản phẩm</a></li>
-                        <li><a href="">Liên hệ</a></li>
+                        <li><a href="/Home">Trang chủ</a></li>
+                        <li><a href="/AboutUs">Giới thiệu</a></li>
+                        <li><a href="/product">Sản phẩm</a></li>
+                        <li><a href="/Contact">Liên hệ</a></li>
                     </ul>
                 </div>
                 <div class="footer__items">
@@ -45,9 +45,9 @@
 </footer>
 
 <style>
-    .footer__area--color {
-        background-color: #f3f3f3;
-        padding: 5% 0
+    .footer__area--color{
+        background-color:#f3f3f3;
+        padding:5% 0
     }
 
     .footer__content {
@@ -66,7 +66,7 @@
 
         .footer__items:first-child p {
             letter-spacing: .05em;
-            padding-top: 3.75rem;
+            padding-top: 3.35rem;
         }
 
     .footer__items:last-child ul li {
@@ -87,43 +87,42 @@
         padding: 0 10px
     }
 
-        .footer__items ul {
-            list-style: none;
-            padding-top: 1rem
-        }
+    .footer__items ul {
+        list-style: none;
+        padding-top:1rem
+    }
 
-            .footer__items ul li a {
-                text-decoration: none;
-                color: #868c98;
-                /*            font-weight: 300;
-            font-size: 1.3rem;*/
-            }
-
-            .footer__items ul li {
-                color: #868c98;
-                /*            font-weight: 300;
-            font-size: 1.3rem;*/
-                line-height: 2.5em;
-            }
-
-        .footer__items p {
+        .footer__items ul li a {
+            text-decoration: none;
             color: #868c98;
-            /*        font-weight: 300;
+            /*            font-weight: 300;
+            font-size: 1.3rem;*/
+        }
+
+        .footer__items ul li {
+            color: #868c98;
+            /*            font-weight: 300;
+            font-size: 1.3rem;*/
+            line-height: 2.5em;
+        }
+
+    .footer__items p {
+        color: #868c98;
+        /*        font-weight: 300;
         font-size: 1.3rem;*/
-        }
+    }
 
-        .footer__items h3 {
-            font-size: 1.3rem;
-        }
-
+    .footer__items h3 {
+        font-size: 1.3rem;
+    }
         .footer__items ul li a:hover {
             color: aqua;
             content: '';
-            transform: translateX(20px);
+            transform:translateX(20px);
         }
 
-    @@media (min-width: 250px) and (max-width: 1023px) {
-        .footer__content {
+        @@media (min-width: 250px) and (max-width: 1023px) {
+            .footer__content {
             display: unset;
         }
 
@@ -134,13 +133,13 @@
         .footer__items ul {
             padding: .5em 0;
         }
+            .footer__items {
+                padding: 2% 0;
+            }
 
-        .footer__items {
-            padding: 2% 0;
-        }
     }
 
-    /*    @@media only screen and (width:768px) and (height:1024px){
+/*    @@media only screen and (width:768px) and (height:1024px){
         .footer__items h3 {
             font-size: 1.05rem;
         }
