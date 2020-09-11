@@ -1,4 +1,56 @@
 ﻿@model IEnumerable<Outsourcing.Data.Models.Product>
+<style>
+    .single-product {
+        border: 0.1px solid #e66b6b
+    }
+
+    .product-buttons {
+        display: none
+    }
+
+        .product-buttons:hover {
+            cursor: pointer
+        }
+
+    .col-xl-4:hover {
+        transform: scale(1.08);
+        transition: transform 1.5s;
+    }
+
+        .col-xl-4:hover .product-caption {
+            display: none;
+            transform: scale(1,2);
+            transition: transform 3s;
+            cursor: pointer;
+        }
+
+        .col-xl-4:hover .product-buttons {
+            display: block
+        }
+
+    #icon-cart {
+        color: brown;
+        width: 48px;
+        height: 48px;
+        background-color: darkgoldenrod;
+        border-radius: 50%;
+        line-height: 3;
+    }
+
+        #icon-cart:hover {
+            background-color: aqua;
+        }
+
+    .product-caption:hover {
+        display: none;
+    }
+</style>
+<script>
+    // script for data-hint
+    $(document).ready(function () {
+        $('[data-hint="tooltip"]').tooltip();
+    });
+</script>
 <main>
 
     @Html.Action("getBannerHome", "Home")
@@ -42,23 +94,58 @@
                             {
                                 <div class="col-xl-4 col-lg-4 col-md-6">
                                     <div class="single-product mb-60">
-                                        <div class="product-img">
-                                            <img src="../Content/MyPham/assets/img/11.jpg" alt="">
-                                            <div class="new-product">
-                                                <span>Sales</span>
+                                        <a href="/productDetail/@item.Slug" class="image-product">
+                                            <div class="product-img">
+                                                <img src="../Content/MyPham/assets/img/11.jpg" alt="">
+                                                <div class="new-product">
+                                                    <span>Sales</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                         <div class="product-caption">
                                             <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
                                             <div class="price">
                                                 <ul>
-                                                    <li>$40.00</li>
-                                                    <li class="discount">$60.00</li>
+                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
+                                                    <li class="discount">@item.OldPrice.ToString("#,##0") vnđ</li>
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="product-buttons">
+
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                        </div>
+
                                     </div>
                                 </div>
+                            }
+                            else
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <a href="/productDetail/@item.Slug" class="image-product">
+                                            <div class="product-img">
+                                                <img src="../Content/MyPham/assets/img/11.jpg" alt="">
+
+                                            </div>
+                                        </a>
+                                        <div class="product-caption">
+                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                            <div class="price">
+                                                <ul>
+                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-buttons">
+
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             }
                         }
                     </div>
@@ -69,93 +156,11 @@
             <!-- End Nav Card -->
         </div>
     </section>
-    <!-- Latest Products End -->
-    <!-- Best Product Start -->
-    <div class="best-product-area lf-padding">
-        <div class="product-wrapper bg-height" style="background-image: url('~/Content/MyPham/assets/img/categori/card.png')">
-            <div class="container position-relative">
-                <div class="row justify-content-between align-items-end">
-                    <div class="product-man position-absolute  d-none d-lg-block">
-                        <img src="~/Content/MyPham/assets/img/categori/card-man.png" alt="">
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 d-none d-lg-block">
-                        <div class="vertical-text">
-                            <span>Manz</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="best-product-caption">
-                            <h2>Find The Best Product<br> from Our Shop</h2>
-                            <p>Designers who are interesten creating state ofthe.</p>
-                            <a href="#" class="black-btn">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Shape -->
-        <div class="shape bounce-animate d-none d-md-block">
-            <img src="~/Content/MyPham/assets/img/categori/card-shape.png" alt="">
-        </div>
-    </div>
-    <!-- Best Product End-->
-    <!-- Best Collection Start -->
-    <div class="best-collection-area section-padding2">
-    </div>
-    <!-- Best Collection End -->
-    <!-- Latest Offers Start -->
-    <div class="latest-wrapper lf-padding">
-        <div class="latest-area latest-height d-flex align-items-center" data-background="~/Content/MyPham/~/Content/MyPham/assets/img/collection/latest-offer.png">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-xl-5 col-lg-5 col-md-6 offset-xl-1 offset-lg-1">
-                        <div class="latest-caption">
-                            <h2>Get Our<br>Latest Offers News</h2>
-                            <p>Subscribe news latter</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-5 col-md-6 ">
-                        <div class="latest-subscribe">
-                            <form action="#">
-                                <input type="email" placeholder="Your email here">
-                                <button>Shop Now</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- man Shape -->
-        </div>
-    </div>
+
+
     <!-- Latest Offers End -->
     <!-- Shop Method Start-->
-    <div class="shop-method-area section-padding30">
-        <div class="container">
-            <div class="row d-flex justify-content-between">
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single-method mb-40">
-                        <i class="ti-package"></i>
-                        <h6>Sản Phẩm chất lượng</h6>
-                        <p>Cam kết về chất lượng sản phẩm, luôn hỗ trợ đổi trả cho các sản phẩm bị lỗi.</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single-method mb-40">
-                        <i class="ti-unlock"></i>
-                        <h6>Giao Hàng nhanh chóng</h6>
-                        <p>Đơn hàng được xử lý, và giao hàng trong vòng 1 tuần kể từ ngày tiếp nhận đơn hàng từ khách hàng.</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single-method mb-40">
-                        <i class="ti-reload"></i>
-                        <h6>Bảo Mật thông tin khách hàng</h6>
-                        <p>Mọi thông tin khách hàng để lại, cửa hàng cam  kết bảo mật 100%. Chỉ sử dụng cho mục đích giao hàng.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @Html.Action("getMission", "Home")
     <!-- Shop Method End-->
     <!-- Gallery Start-->
     <div class="gallery-wrapper lf-padding">
@@ -178,6 +183,7 @@
             </div>
         </div>
     </div>
+    @Html.Action("getContact", "Home")
     <!-- Gallery End-->
 
 </main>
