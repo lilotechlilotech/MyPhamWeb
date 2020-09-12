@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<Outsourcing.Data.Models.Product>
 <style>
     .single-product {
-        border: 0.1px solid #9bdb96;
-        border-radius:5px;
+        border: 0.1px solid #c3c3c3e3;
     }
 
     .product-buttons {
@@ -33,19 +32,24 @@
         color: brown;
         width: 48px;
         height: 48px;
-        background-color: darkgoldenrod;
+        background-color: #f5f7f6;
         border-radius: 50%;
         line-height: 3;
     }
 
         #icon-cart:hover {
-            background-color: aqua;
+            background-color: brown;
+            color: white;
         }
 
     .product-caption:hover {
         display: none;
     }
-    
+
+    .col-xl-4:hover {
+        transform: translateY(-5%);
+        transition: all .5s;
+    }
 </style>
 <script>
     // script for data-hint
@@ -54,7 +58,7 @@
     });
 </script>
 <main>
-       
+
     @Html.Action("getBannerHome", "Home")
 
     <section class="category-area section-paddingt2">
@@ -115,7 +119,7 @@
                                         </div>
                                         <div class="product-buttons" data-hint="tooltip" title="Thêm vào giỏ hàng!">
 
-                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top"  data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
                                         </div>
 
                                     </div>
@@ -142,7 +146,7 @@
                                         </div>
                                         <div class="product-buttons" data-hint="tooltip" title="Thêm vào giỏ hàng!">
 
-                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top"  data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
                                         </div>
 
                                     </div>

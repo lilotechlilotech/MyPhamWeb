@@ -3,40 +3,38 @@
     }*@
 @model IEnumerable<Outsourcing.Data.Models.WebsiteAttribute>
 @{
-    Outsourcing.Data.Models.WebsiteAttribute[] arraySlide = Model.Cast<Outsourcing.Data.Models.WebsiteAttribute>().ToArray();
+     Outsourcing.Data.Models.WebsiteAttribute[] arraySlide = Model.Cast<Outsourcing.Data.Models.WebsiteAttribute>().ToArray();
 }
 
     <style>
-        .d-md-block {
-            display: block !important
-        }
+       
         #carouselExampleIndicators{
             cursor:pointer
         }
     </style>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            @for (int i = 1; i < arraySlide.Length; i++)
-            {
-            <li data-target="#carouselExampleIndicators" data-slide-to="@i"></li>  
-            }
-            
-            
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                @{
-                    var firstSlide = Model.First();
-                }
-
-                <img class="d-block w-100" src="../Content/MyPham/assets/img/banner_img.png" alt="@Model.First().Name">
-
-
-            </div>
             @if (Model != null)
             {
-                
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                for (int i = 1; i < arraySlide.Length; i++)
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@i"></li>
+
+                }
+
+            }
+            </ol>
+        <div class="carousel-inner">
+            @if (Model != null)
+            {
+                <div class="carousel-item active">
+                    @{
+                        var firstSlide = Model.First();
+                    }
+
+                    <img class="d-block w-100" src="../Content/MyPham/assets/img/banner_img.png" alt="@Model.First().Name">
+                </div>
                 for (int i = 1; i < arraySlide.Length; i++)
                 {
 
