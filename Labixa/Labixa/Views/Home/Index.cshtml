@@ -1,0 +1,190 @@
+﻿@model IEnumerable<Outsourcing.Data.Models.Product>
+<style>
+    .single-product {
+        border: 0.1px solid #e66b6b
+    }
+
+    .product-buttons {
+        display: none
+    }
+
+        .product-buttons:hover {
+            cursor: pointer
+        }
+
+    .col-xl-4:hover {
+        transform: scale(1.08);
+        transition: transform 1.5s;
+    }
+
+        .col-xl-4:hover .product-caption {
+            display: none;
+            transform: scale(1,2);
+            transition: transform 3s;
+            cursor: pointer;
+        }
+
+        .col-xl-4:hover .product-buttons {
+            display: block
+        }
+
+    #icon-cart {
+        color: brown;
+        width: 48px;
+        height: 48px;
+        background-color: darkgoldenrod;
+        border-radius: 50%;
+        line-height: 3;
+    }
+
+        #icon-cart:hover {
+            background-color: aqua;
+        }
+
+    .product-caption:hover {
+        display: none;
+    }
+    
+</style>
+<script>
+    // script for data-hint
+    $(document).ready(function () {
+        $('[data-hint="tooltip"]').tooltip();
+    });
+</script>
+<main>
+       
+    @Html.Action("getBannerHome", "Home")
+
+    <section class="category-area section-paddingt2">
+        <div class="container-fluid">
+            <!-- Section Tittle -->
+            <div class="row">
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </section>
+    <!-- Category Area End-->
+    <!-- Latest Products Start -->
+    <section class="latest-product-area padding-bottom">
+        <div class="container">
+            <div class="row product-btn d-flex justify-content-end align-items-end">
+                <!-- Section Tittle -->
+                <div class="col-xl-4 col-lg-5 col-md-5">
+                    <div class="section-tittle mb-30">
+                        <h2>Latest Products</h2>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7 col-md-7">
+                    <div class="properties__button f-right">
+                        <!--Nav Button  -->
+                        <!--End Nav Button  -->
+                    </div>
+                </div>
+            </div>
+            <!-- Nav Card -->
+            <div class="tab-content" id="nav-tabContent">
+                <!-- card one -->
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+
+                            if (item.IsHomePage == true)
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <a href="/productDetail/@item.Slug" class="image-product">
+                                            <div class="product-img">
+                                                <img src="../Content/MyPham/assets/img/11.jpg" alt="">
+                                                <div class="new-product">
+                                                    <span>Sales</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="product-caption">
+                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                            <div class="price">
+                                                <ul>
+                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
+                                                    <li class="discount">@item.OldPrice.ToString("#,##0") vnđ</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-buttons">
+
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <a href="/productDetail/@item.Slug" class="image-product">
+                                            <div class="product-img">
+                                                <img src="../Content/MyPham/assets/img/11.jpg" alt="">
+
+                                            </div>
+                                        </a>
+                                        <div class="product-caption">
+                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                            <div class="price">
+                                                <ul>
+                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-buttons">
+
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            }
+                        }
+                    </div>
+                </div>
+                <!-- Card two -->
+
+            </div>
+            <!-- End Nav Card -->
+        </div>
+    </section>
+
+
+    <!-- Latest Offers End -->
+    <!-- Shop Method Start-->
+    @Html.Action("getMission", "Home")
+    <!-- Shop Method End-->
+    <!-- Gallery Start-->
+    <div class="gallery-wrapper lf-padding">
+        <div class="gallery-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="gallery-items">
+                        <img src="~/Content/MyPham/~/Content/MyPham/assets/img/gallery/gallery1.jpg" alt="">
+                    </div>
+                    <div class="gallery-items">
+                        <img src="~/Content/MyPham/~/Content/MyPham/assets/img/gallery/gallery2.jpg" alt="">
+                    </div>
+                    <div class="gallery-items">
+                        <img src="~/Content/MyPham/~/Content/MyPham/assets/img/gallery/gallery3.jpg" alt="">
+                    </div>
+                    <div class="gallery-items">
+                        <img src="~/Content/MyPham/~/Content/MyPham/assets/img/gallery/gallery4.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Action("getContact", "Home")
+    <!-- Gallery End-->
+
+</main>

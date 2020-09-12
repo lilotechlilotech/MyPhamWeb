@@ -1,0 +1,155 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Outsourcing.Data.Models.Product>
+<style>
+    .pagination-container{
+        display:inline-block
+    }
+        .pagination-container .pagination .active a {
+            background-color: #236d5f;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #f5f5f5;
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            margin-left: 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: all .5s;
+        }
+    .product-buttons {
+ 
+        display: none
+    }
+    
+    .product-buttons:hover{
+        cursor:pointer
+    }
+    .col-xl-4:hover {
+        transform: scale(1.08);
+        transition: transform 1.5s;
+    }
+        .col-xl-4:hover .product-caption {
+            display: none;
+            transform: scale(1,2);
+            transition: transform 3s;
+            cursor: pointer;
+        }
+       
+    .col-xl-4:hover .product-buttons{
+        
+        display:block
+    }
+    #icon-cart {
+        color: brown;
+        width: 48px;
+        height: 48px;
+        background-color: darkgoldenrod;
+        border-radius: 50%;
+        line-height: 3;
+    }
+    #icon-cart:hover{
+        background-color:aqua;
+    }
+    .product-caption:hover{
+        display:none;
+    }
+</style>
+<script>// script for data-hint
+    $(document).ready(function () {
+        $('[data-hint="tooltip"]').tooltip();
+    });
+</script>
+<main>
+
+    <!-- slider Area Start--->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="../Content/MyPham/assets/img/hero/category.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Danh sách sản phẩm</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    <!-- Latest Products Start -->
+    <section class="latest-product-area latest-padding">
+        <div class="container">
+            <div class="row product-btn d-flex justify-content-between">
+                <div class="properties__button">
+                    <!--Nav Button  -->
+                    <!--End Nav Button  -->
+                </div>
+                <div class="select-this d-flex">
+
+                </div>
+            </div>
+            <!-- Nav Card -->
+            <div class="tab-content" id="nav-tabContent">
+                <!-- card one -->
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsHomePage == false)
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-product mb-60">
+                                        <a href="/productDetail/@item.Slug" class="image-product">
+                                            <div class="product-img">
+                                                <img src="../Content/MyPham/assets/img/11.jpg" alt="">
+
+                                            </div>
+                                        </a>
+                                        <div class="product-caption">
+                                            <h6 class="item-name">@item.Name</h6>
+                                            <div class="price">
+                                                @item.Price.ToString("#,##0") vnđ
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="product-buttons">
+
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+
+
+                        }
+
+                        
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- End Nav Card -->
+        </div>
+    </section>
+    @Html.Action("getMission", "Home")
+
+    @Html.Action("ProductFeatured", "Products")
+    <div class="col text-center">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        <br />
+        <br />
+        <span>@Html.PagedListPager(Model, page => Url.Action("Products", "Products", new { page }))</span>
+    </div>
+    <!-- Gallery En d-->
+
+</main>

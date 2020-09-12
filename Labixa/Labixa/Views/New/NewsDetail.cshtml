@@ -1,0 +1,127 @@
+﻿@model Outsourcing.Data.Models.Blog
+@using Outsourcing.Core.Common
+@{
+    // HttpCookie cookie = Request.Cookies["_culture"];
+    ViewBag.Title = ViewBag.Title;
+    ViewBag.Description = ViewBag.Description;
+    ViewBag.Image = ViewBag.Image;
+    ViewBag.Url = ViewBag.Url;
+}
+
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="../Content/MyPham/assets/img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Chi Tiết Tin Tức</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Blog Area =================--->
+<section class="blog_area single-post-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="img-fluid" src="../Content/MyPham/assets/img/ttdetail.jpg" alt="@Model.Title">
+                    </div>
+                    <div class="blog_details">
+                        <h2>
+                            @Model.Title
+                        </h2>
+                        <ul class="blog-info-link">
+                            <li><a href="#"><i class="fa fa-calendar"></i> @Model.DateCreated.ToString("dd/MM/yyyy")</a></li>
+
+                        </ul>
+                        <div class="blog-author">
+                            <div class="media align-items-center">
+
+                                <div class="media-body">
+
+                                    <p>
+                                        @*@Html.Raw(slitString.TruncateAtWord(@Html.Raw(Model.Content), 80));*@
+                                       
+                                        @Model.Description
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <p> @Html.Raw(Model.Content)</p>
+                <div class="comment-form">
+                    <h4>ConTact Form</h4>
+                    <form class="form-contact comment_form" action="#" id="commentForm">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                              placeholder="Nội Dung ..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" id="name" type="text" placeholder="Họ Và Tên">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="website" id="website" type="number" placeholder="Số Điện Thoại">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Gửi tin nhắn</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+
+                    @Html.Action("NewsFeatured", "New")
+
+                    <aside class="single_sidebar_widget instagram_feeds">
+                        <h4 class="widget_title">Social</h4>
+                        <ul class="instagram_row flex-wrap">
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/tiktok.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/instagram-sketched.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/facebook.png" alt="">
+                                </a>
+                            </li>
+
+                        </ul>
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ Blog Area end ===== ============-->

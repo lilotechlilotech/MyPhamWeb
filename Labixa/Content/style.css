@@ -49,10 +49,13 @@
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
+* {
+    font-family: "Quicksand",sans-serif;
+}
 body {
     color: #252525;
     /* font-family: lato,Arial,Helvetica,sans-serif; */
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Quicksand",sans-serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
@@ -72,13 +75,12 @@ img {
   height:auto
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #252525;
-  /*         font-family: 'Montserrat', sans-serif; */
-           font-family: 'Montserrat', sans-serif;
-
-  font-weight: 700;
-  line-height: 1.35;
-  margin: 0 0 5px;
+    color: #252525;
+    /*         font-family: 'Montserrat', sans-serif; */
+    font-family: "Quicksand",sans-serif;    
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 5px;
 }
 p:last-child {
   margin-bottom: 0;

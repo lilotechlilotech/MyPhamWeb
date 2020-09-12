@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Outsourcing.Data.Models.Product>
+<section class="latest-product-area latest-padding">
+    <div class="container">
+        <h1 style="text-align:center">Sản Phẩm Khuyến Mãi</h1>
+        <!-- Nav Card -->
+        <div class="tab-content" id="nav-tabContent">
+            <!-- card one --->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="single-product mb-60">
+                                    <a href="/productDetail/@item.Slug" class="image-product">
+                                        <div class="product-img">
+                                            <img src="../Content/MyPham/assets/img/11.jpg" alt="@item.Name">
+                                            <div class="new-product">
+                                                <span>Sale</span>
+                                            </div>
+                                        </div>
+                                        </a >
+                                        <div class="product-caption">
+
+                                            <h4><a href="/productDetail/@item.Slug">@item.Name</a></h4>
+                                            <div class="price">
+                                                <ul>
+                                                    <li>@item.Price.ToString("#,##0") vnđ</li>
+                                                    <li class="discount">@item.OldPrice.ToString("#,##0") vnđ </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-buttons">
+
+                                            <a onclick="return addToCart('@item.Id')" class="product-button hintT-top" data-hint="tooltip" title="Thêm vào giỏ hàng!" data-target="#myModal1"><i class="fa fa-shopping-cart" id="icon-cart"></i></a>
+                                        </div>
+
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- End Nav Card --->
+    </div>
+</section>
