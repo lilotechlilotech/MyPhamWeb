@@ -1,4 +1,49 @@
-﻿<script>
+﻿@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web;
+@using System.Web.Mvc;
+@using Labixa.Models;
+@using Outsourcing.Service;
+@using Outsourcing.Data.Models;
+@using PagedList;
+@using Labixa.ViewModels;
+@using Labixa.Helpers;
+@using Outsourcing.Core.Common;
+@{
+
+    var dat = (IEnumerable<Outsourcing.Data.Models.WebsiteAttribute>)ViewBag.social;
+    HttpCookie cookie = Request.Cookies["_culture"];
+    var counting = 0;
+    ListProductCartModel listCart = new ListProductCartModel();
+
+    listCart = (ListProductCartModel)Session["Cart"];
+    if (Session["Cart"] != null)
+    {
+        foreach (var item in listCart.listProduct)
+        {
+            counting += item.Quantity;
+        }
+    }
+}
+@functions{
+    public int countCart()
+    {
+        var counting = 0;
+        ListProductCartModel listCart = new ListProductCartModel();
+
+        listCart = (ListProductCartModel)Session["Cart"];
+        if (Session["Cart"] != null)
+        {
+            foreach (var item in listCart.listProduct)
+            {
+                counting += item.Quantity;
+            }
+        }
+        return counting;
+    }
+}
+<script>
      @*script for cookie*@
         function createCookie(name, value, days) {
             if (days) {
@@ -28,7 +73,7 @@
         }
 
 
-  
+
 </script>      <!-- Preloader Start -->
 <style>
     .option p {
@@ -200,7 +245,7 @@
                                     <li><a href="#">Facebook  <i class="fab fa-facebook-square"></i></a></li>
                                     <li><a href="#">Instagram <i class="fab fa-instagram"></i></a></li>
                                     <li><a href="#">Tiktok <i class="fab fa-tiktok"></i></a> </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -230,7 +275,7 @@
                                             <a href="/News">Tin Tức</a>
                                         </li>
                                         <li><a href="/Contact">Liên Hệ</a></li>
-                                        <li >
+                                        <li>
                                             <a href="#">Ngôn Ngữ</a>
                                             <ul class="submenu">
                                                 <li><a href="javascript:void(0)" onclick="createCookie('_culture','en',365)" style="color:red;"><span class="menu-text">English</span><img src="~/Content/MyPham/assets/img/icon/united-states.png" style="padding-left:7px;" alt="" /></a></li>
@@ -245,8 +290,11 @@
                             <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                                 <li>
                                     <div class="shopping-card">
-                                        <a href="cart.html"><i id="countCart" class="fas fa-shopping-cart"></i></a>
-                                    </div>
+                                        <a href="/detailcart"><span id="countCart" class="cart-count">@Html.Raw(counting)</span><i  class="fas fa-shopping-cart"></i></a>
+                               
+                                   
+                                
+</div>
                                 </li>
                             </ul>
                         </div>
