@@ -12,15 +12,16 @@
     {
         foreach (var item in Model)
         {
-            <div class="media post_item">
-                <img src="../Content/MyPham/assets/img/ttnho.jpg" alt="@item.Title" id="imgnewsdetail">
-                <div class="media-body">
-                    <a href="/newDetail/@item.Slug">
-                        <h3>@Html.Raw(slitString.TruncateAtWord(item.Title, 25))</h3>
-                    </a>
-                    <p> @item.DateCreated.ToString("dd/MM/yyyy")</p>
-                </div>
-            </div>
+<div class="media post_item">
+    <a href="/newDetail/@item.Slug">
+        <img src="../Content/MyPham/assets/img/ttnho.jpg" alt="@item.Title" id="imgnewsdetail"></a>
+        <div class="media-body">
+            <a href="/newDetail/@item.Slug">
+                <h3>@Html.Raw(slitString.TruncateAtWord(item.Title, 25))</h3>
+            </a>
+            <p> @item.DateCreated.ToString("dd/MM/yyyy")</p>
+        </div>
+</div>
         }
     }
 
