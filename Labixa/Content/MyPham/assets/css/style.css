@@ -13048,3 +13048,76 @@ input:focus {
 }
 
 /*# sourceMappingURL=style.css.map */
+/*css form cart*/
+
+button.btn-info.btn-sm:hover {
+   
+    cursor: pointer
+}
+button.btn-info.btn-sm {
+    cursor: pointer ;
+    border: hidden;
+    font-size: 17px;
+}
+button.btn-danger.btn-sm {
+    cursor: pointer;
+    border: hidden;
+    font-size: 17px;
+}
+button.btn-danger.btn-sm:hover {
+   
+    cursor: pointer
+}
+h5.nomargin {
+    text-align: center 
+}
+@media screen and (max-width: 600px) {
+    table #cart tbody td .form-control {
+        width: 20% !important;
+        display: inline !important;
+    }
+
+    .actions .btn {
+        width: 36% !important;
+        margin: 1.5em 0 !important;
+    }
+
+    .actions .btn-info {
+        float: left !important;
+    }
+
+    .actions .btn-danger {
+        float: right !important;
+    }
+
+    table#cart thead {
+        display: none !important;
+    }
+
+    table#cart tbody td {
+        display: block !important;
+        padding: .6rem !important;
+        min-width: 320px !important;
+    }
+
+    table#cart tbody tr td:first-child {
+        /*background: #333 !important;*/
+        color: #fff !important;
+    }
+
+    table#cart tbody td:before {
+        /*content: attr(data-th) !important;*/
+        font-weight: bold !important;
+        display: inline-block !important;
+        width: 8rem !important;
+    }
+
+    table#cart tfoot td {
+        display: block !important;
+    }
+
+        table#cart tfoot td .btn {
+            display: block !important;
+        }
+}
+

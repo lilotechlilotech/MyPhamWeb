@@ -1,1 +1,114 @@
-﻿
+﻿@using Labixa.ViewModels;
+@{
+    HttpCookie cookie = Request.Cookies["_culture"];
+    ViewBag.Title = "DetailCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ListProductCartModel modelCart = (ListProductCartModel)Session["Cart"];
+    //var tongtien = 0;
+    var result1 = 0;
+}
+<h2 class="text-center">Giỏ Hàng</h2>
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Tên sản phẩm</th>
+                <th style="width:10%">Giá</th>
+                <th style="width:8%">Số lượng</th>
+                <th style="width:22%" class="text-center">Thành tiền</th>
+                <th style="width:10%"> </th>
+            </tr>
+        </thead>
+        
+        @if (modelCart != null)
+        {
+            int i = 0;
+
+            foreach (var item in modelCart.listProduct)
+            {
+                //tongtien += (int)item.Price;
+                i++;
+                <tbody id="cart">
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs">
+                                    <img src="../Content/MyPham/assets/img/11.jpg" alt="@item.ProdName" class="img-responsive" width="100">
+                                </div>
+                                <div class="col-sm-10">
+                                    <h5 class="nomargin">@item.ProdName</h5>
+                                    @*<p>Mô tả của sản phẩm 1</p>*@
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">@item.Price.ToString("#,##0") Đ</td>
+                        <td data-th="Quantity">
+                            <input class="form-control text-center" value="@item.Quantity" type="number">
+                        </td>
+                        <td data-th="Subtotal" class="text-center">
+                            @{
+                                var priceVND_subtotal = Math.Round(item.Price);
+                                var result = priceVND_subtotal * item.Quantity;
+                                result1 += (int)result;
+                            }@result.ToString("#,##0") Đ
+                        </td>
+                        <td class="actions" data-th="">
+                            <button class=" btn-info btn-sm">
+                               <a href="#" onclick="return UpdateCartJs(@i, @item.ProductId, @item.Price)"> <i class="fa fa-edit" ></i></a>
+                                
+                            </button>
+                            <button class=" btn-danger btn-sm">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            }
+        }
+        <tfoot>
+
+            <tr>
+                <td>
+                    <a href="/home/index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
+                </td>
+                <td colspan="2" class="hidden-xs"> </td>
+                <td class="hidden-xs text-center">
+                    <strong>Tổng tiền @String.Format("{0:N0}", result1) Đ </strong>
+                </td>
+                <td>
+                    <a href="" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+    
+
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    };
+    function UpdateCartJs(index, ProductId, price) {
+        //var price = $('#price').val();
+        //alert("UpdateCartJs: " + price);
+        var ele = document.getElementById("cart").rows[index].getElementsByTagName("input")[0].value;
+        var quantity = 0;
+        //alert("abc: " + ele);
+        if (ele == 0) {
+            window.location.replace('/Products/DeleteCartProduct?prodId=' + ProductId);
+            window.location.href = "/Products/DeleteCartProduct?prodId=" + ProductId;
+           window.reload();
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "/Products/AddToCart",
+                data: { ProductId: ProductId, Update: ele, Quantity: quantity },
+                success: function (result) {
+                   location.reload();
+                }
+            });
+        }
+    };
+   
+</script>
