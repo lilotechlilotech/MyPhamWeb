@@ -7,8 +7,8 @@
     //var tongtien = 0;
     var result1 = 0;
 }
-<h2 class="text-center">Giỏ Hàng</h2>
-<div class="container">
+<h2 class="text-center">Chi Tiết Giỏ Hàng</h2>
+<div class="container" id="test-reload" style="max-width:1220px !important">
     <table id="cart" class="table table-hover table-condensed">
         <thead>
             <tr>
@@ -28,7 +28,7 @@
             {
                 //tongtien += (int)item.Price;
                 i++;
-                <tbody id="cart">
+                <tbody class="cart-col">
                     <tr>
                         <td data-th="Product">
                             <div class="row">
@@ -54,11 +54,11 @@
                         </td>
                         <td class="actions" data-th="">
                             <button class=" btn-info btn-sm">
-                               <a href="#" onclick="return UpdateCartJs(@i, @item.ProductId, @item.Price)"> <i class="fa fa-edit" ></i></a>
+                               <a  onclick="return UpdateCartJs(@i, @item.ProductId, @item.Price)"> <i class="fa fa-edit" ></i></a>
                                 
                             </button>
                             <button class=" btn-danger btn-sm">
-                                <i class="far fa-trash-alt"></i>
+                               <a href="/Products/DeleteCartProduct?prodId=@item.ProductId"> <i class="far fa-trash-alt"></i></a>
                             </button>
                         </td>
                     </tr>
@@ -77,7 +77,7 @@
                     <strong>Tổng tiền @String.Format("{0:N0}", result1) Đ </strong>
                 </td>
                 <td>
-                    <a href="" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+                    <a href="#" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
                 </td>
             </tr>
         </tfoot>
@@ -92,8 +92,10 @@
     function UpdateCartJs(index, ProductId, price) {
         //var price = $('#price').val();
         //alert("UpdateCartJs: " + price);
+        console.log("Priceprice: " + price);
         var ele = document.getElementById("cart").rows[index].getElementsByTagName("input")[0].value;
         var quantity = 0;
+       // console.log("Priceprice: " + ele);
         //alert("abc: " + ele);
         if (ele == 0) {
             window.location.replace('/Products/DeleteCartProduct?prodId=' + ProductId);
@@ -105,7 +107,11 @@
                 url: "/Products/AddToCart",
                 data: { ProductId: ProductId, Update: ele, Quantity: quantity },
                 success: function (result) {
-                   location.reload();
+                    var x = document.getElementsByClassName("cart-col").innerHTML;
+                   // x.reload();
+                 $(" #test-reload ").load(window.location.href + " #test-reload ");
+                    
+
                 }
             });
         }
