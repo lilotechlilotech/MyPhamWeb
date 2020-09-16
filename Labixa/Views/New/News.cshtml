@@ -59,16 +59,18 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="/newDetail/@item.Slug">
-                                    <h2>@Html.Raw(slitString.TruncateAtWord(item.Title, 80))</h2>
-                                </a>
-                                <p>
-                                    @Html.Raw(slitString.TruncateAtWord(item.Description, 200))
-                                </p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-calendar"></i> @item.DateCreated.ToString("dd/MM/yyyy")</a></li>
 
                                 </ul>
+                                <a class="d-inline-block" href="/newDetail/@item.Slug">
+                                    <h2>@Html.Raw(slitString.TruncateAtWord(item.Title, 45))</h2>
+                                </a>
+
+                                <p>
+                                    @Html.Raw(slitString.TruncateAtWord(item.Description, 200))
+                                </p>
+
                             </div>
                         </article>
                     }
@@ -89,24 +91,22 @@
                         <ul class="instagram_row flex-wrap">
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/tiktok.png" alt="">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/tiktok.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/instagram-sketched.png" alt="">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/instagram-sketched.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="~/Content/MyPham/assets/img/post/facebook.png" alt="">
+                                    <img class="img-fluid" src="../Content/MyPham/assets/img/post/facebook.png" alt="">
                                 </a>
                             </li>
-
 
                         </ul>
                     </aside>
-
                 </div>
             </div>
         </div>
